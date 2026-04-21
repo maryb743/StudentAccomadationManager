@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/header_styles.css">
     <link rel="stylesheet" href="css/grid.css?v=1.0">
+    <link rel="stylesheet" href="css/houseops_styles.css">
 
     <title>Student Accommodation Manager</title>
 
@@ -36,11 +37,9 @@
             <h1>Search, find and book your new home!</h1>
 
             <div class="searchBox">
-                <h5>Search by city, university or property</h5>
                 <form action="">
                     <input type="text" value="Search"><button class="searchButton">Search</button>
                 </form>
-                <p><a href="">Log in</a> to view recent properties</p>
             </div>
         </div>
 
@@ -50,33 +49,33 @@
     
 <!--start of houseops -->
 <section class="housingOptions">
-    <div class="house-container">
-        <div class="width-4">
+    <div class="container house-container">
+
+        <div class="house-item">
             <div class="house house1">
                 <h3>Our picks</h3>
             </div>
             <p>Discover your new home with recommendations from students.</p>
-            <a href="">view Our picks <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="">View Our picks <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <div class="width-8">
+        <div class="house-item">
             <div class="house house2">
                 <h3>Highest Ranking</h3>
             </div>
             <p>Discover the top-rated properties based on student reviews.</p>
             <a href="">View Highest Ranking <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-
-        <div class="width-12">
+      
+        <div class="house-item">
             <div class="house house3">
                 <h3>Only on blank</h3>
             </div>
             <p>You won't find better deals anywhere else.</p>
-            <a href="">view only on blank <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="">View only on blank <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        </div>
-
+    </div>
 </section>
 <!-- end of houseops -->
     

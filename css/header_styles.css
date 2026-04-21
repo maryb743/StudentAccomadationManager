@@ -1,8 +1,15 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+
 /* text */
 body {
+    margin: 0px;
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 16px;
-    color: #2E3333;
+    color: #ffffff;
 }
 
 h1 {
@@ -11,13 +18,14 @@ h1 {
     margin-bottom: 20px;
 }
 
+
 header.header_bg {
     background-image: url(../images/header_bg.png);
     background-size: cover;
 }
 /* header style start */
 header {
-    min-height: 554px;
+    min-height: 500px;
     background-image: url(../images/header_bg.png);
     background-size: cover;
 }
@@ -37,7 +45,7 @@ header nav ul a {
 
 /* search box styles */
 header .searchBox {
-    padding: 10px;
+    padding: 15px;
     background: #fff;
     border-radius: 3px;
     box-shadow: 0px 4px 4px rgba(168,166,166,0.25);
@@ -51,14 +59,15 @@ header .searchBox form {
 }
 
 header .searchBox form input {
-    width: 40%;
-    height: 40px;
+    width: 85%;
+    height: 50px;
     padding-left: 10px;
 }
 
 /* button */
 .searchButton {
     height: 40px;
+    width: 80px;
     padding: 0 20px;
     display: flex;
     align-items: center;
