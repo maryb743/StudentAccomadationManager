@@ -1,0 +1,57 @@
+.housingOptions{
+    background-color: #fff;
+}
+ 
+.housingOptions .house{
+    background-size: cover;
+    min-height: 149px;
+    display: grid;
+    place-items: center;
+}
+
+.house-container {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.housingOptions .house {
+    background-size: cover;
+    background-position: center;
+}
+ 
+.housingOptions .house1{
+    background-image: url(../images/hoImage1.jpg);
+}
+ 
+.housingOptions .house2{
+    background-image: url(../images/hoImage2.jpg);
+}
+ 
+.housingOptions .house3{
+    background-image: url(../images/hoImage3.jpg);
+}
+ 
+.housingOptions .house h3{
+    color:white;
+}
+ 
+.housingOptions a{
+    color: #6692eb;
+}
+ 
+.housingOptions p{
+    margin-bottom: 10px;
+}
+
+.width-4 {
+    flex: 1;
+}
+
+.width-8 {
+    flex: 2;
+}
+
+.width-12 {
+    flex: 3;
+}

@@ -5,6 +5,16 @@ body {
     color: #2E3333;
 }
 
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+header.header_bg {
+    background-image: url(../images/header_bg.png);
+    background-size: cover;
+}
 /* header style start */
 header {
     min-height: 554px;
@@ -27,8 +37,7 @@ header nav ul a {
 
 /* search box styles */
 header .searchBox {
-    padding: 25px;
-        max-width: 500px;
+    padding: 10px;
     background: #fff;
     border-radius: 3px;
     box-shadow: 0px 4px 4px rgba(168,166,166,0.25);
@@ -42,14 +51,14 @@ header .searchBox form {
 }
 
 header .searchBox form input {
-    width: 25%;
-    height: 50px;
+    width: 40%;
+    height: 40px;
     padding-left: 10px;
 }
 
 /* button */
 .searchButton {
-    height: 50px;
+    height: 40px;
     padding: 0 20px;
     display: flex;
     align-items: center;

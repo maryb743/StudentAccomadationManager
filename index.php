@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/header_styles.css">
+    <link rel="stylesheet" href="css/grid.css?v=1.0">
 
     <title>Student Accommodation Manager</title>
 
@@ -32,7 +32,7 @@
         </div>
 
         <!-- search box & image -->
-        <div class="width-2">
+        <div class="width-6">
             <h1>Search, find and book your new home!</h1>
 
             <div class="searchBox">
@@ -47,6 +47,38 @@
      </div> 
     </header>
     <!-- end of header -->
+    
+<!--start of houseops -->
+<section class="housingOptions">
+    <div class="house-container">
+        <div class="width-4">
+            <div class="house house1">
+                <h3>Our picks</h3>
+            </div>
+            <p>Discover your new home with recommendations from students.</p>
+            <a href="">view Our picks <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="width-8">
+            <div class="house house2">
+                <h3>Highest Ranking</h3>
+            </div>
+            <p>Discover the top-rated properties based on student reviews.</p>
+            <a href="">View Highest Ranking <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="width-12">
+            <div class="house house3">
+                <h3>Only on blank</h3>
+            </div>
+            <p>You won't find better deals anywhere else.</p>
+            <a href="">view only on blank <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        </div>
+
+</section>
+<!-- end of houseops -->
     
 </body>
 
