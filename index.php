@@ -24,11 +24,17 @@
         <div class="width-4"><i class="fa-sharp-duotone fa-light fa-people-roof"></i></div>
         <div class="width-8">
             <nav>
-                <ul>
-                    <li><a href=""><i class="fa-solid fa-angle-down"></i>About Us</a></li>
-                    <li><a href=""><i class="fa-solid fa-arrow-right-to-bracket"></i>Login or Signup</a></li>
-                    <li><a href=""><i class="fa-solid fa-circle-user"></i>Account</a></li>
-                </ul>
+        <?php session_start(); ?>
+
+            <ul>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <li><a href="admin/account.php">Account</a></li>
+                    <li><a href="admin/logout.php">Logout</a></li>
+                <?php else: ?>
+                    <li><a href="admin/login.php">Login or Signup</a></li>
+
+                <?php endif; ?>
+        </ul>
             </nav>
         </div>
 
@@ -56,7 +62,6 @@
                 <h3>Our picks</h3>
             </div>
             <p>Discover your new home with recommendations from students.</p>
-            <a href="">View Our picks <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <div class="house-item">
@@ -64,15 +69,17 @@
                 <h3>Highest Ranking</h3>
             </div>
             <p>Discover the top-rated properties based on student reviews.</p>
-            <a href="">View Highest Ranking <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       
         <div class="house-item">
             <div class="house house3">
                 <h3>Only on blank</h3>
             </div>
-            <p>You won't find better deals anywhere else.</p>
-            <a href="">View only on blank <i class="fa-solid fa-arrow-right"></i></a>
+            <p>You won't find better deals anywhere else.</p><?php session_start(); ?>
+
+            <a href="<?php echo isset($_SESSION['user_id']) ? 'account.php' : 'login.php'; ?>">
+                Find out more!<i class="fa-solid fa-arrow-right"></i>
+            </a>
         </div>
 
     </div>
