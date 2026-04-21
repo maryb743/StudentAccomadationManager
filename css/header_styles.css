@@ -1,0 +1,68 @@
+/* text */
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    color: #2E3333;
+}
+
+/* header style start */
+header {
+    min-height: 554px;
+    background-image: url(../images/header_bg.png);
+    background-size: cover;
+}
+
+/* nav styles */
+header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+header nav ul a {
+    background: #fff;
+    padding: 9px 19px;
+    border-radius: 4px;
+}
+
+/* search box styles */
+header .searchBox {
+    padding: 25px;
+        max-width: 500px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px rgba(168,166,166,0.25);
+}
+
+/* form */
+header .searchBox form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+header .searchBox form input {
+    width: 25%;
+    height: 50px;
+    padding-left: 10px;
+}
+
+/* button */
+.searchButton {
+    height: 50px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    background: #7993f3;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+/* image */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* header style end */
