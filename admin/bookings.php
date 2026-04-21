@@ -1,2 +1,4 @@
+
+<?php require 'auth.php'; #
 //requires account to access
-<?php require 'auth.php'; ?>
+?>

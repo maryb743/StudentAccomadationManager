@@ -75,9 +75,9 @@
             <div class="house house3">
                 <h3>Only on blank</h3>
             </div>
-            <p>You won't find better deals anywhere else.</p><?php session_start(); ?>
-
-            <a href="<?php echo isset($_SESSION['user_id']) ? 'account.php' : 'login.php'; ?>">
+            <p>You won't find better deals anywhere else.</p>
+            <?php session_start(); ?>
+            <a href="<?php echo isset($_SESSION['user_id']) ? 'admin/account.php' : 'admin/login.php'; ?>">
                 Find out more!<i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
