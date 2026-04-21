@@ -1,3 +1,5 @@
+/* Styles for the header section */
+
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -35,6 +37,7 @@ header nav ul {
     display: flex;
     justify-content: flex-end;
     gap: 15px;
+    list-style-type: none;
 }
 
 header nav ul a {
@@ -47,8 +50,7 @@ header nav ul a {
 header .searchBox {
     padding: 15px;
     background: #fff;
-    border-radius: 3px;
-    box-shadow: 0px 4px 4px rgba(168,166,166,0.25);
+    border-radius: 15px;
 }
 
 /* form */
@@ -71,8 +73,8 @@ header .searchBox form input {
     padding: 0 20px;
     display: flex;
     align-items: center;
-    background: #7993f3;
-    color: #fff;
+    background: #4ea8de;
+    color: #ffffff;
     border-radius: 4px;
     text-decoration: none;
 }

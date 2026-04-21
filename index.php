@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/header_styles.css">
-    <link rel="stylesheet" href="css/grid.css?v=1.0">
+    <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/houseops_styles.css">
 
     <title>Student Accommodation Manager</title>
@@ -83,4 +83,4 @@
 
 </html>
 
-//http://localhost/studentAccomManager/index.php
+//http://localhost/studentAccomadationManager/index.php
