@@ -91,16 +91,17 @@
         <div class="width-12">
             <h2>Our Top University Partners</h2>
         </div>
+
 <div class="width-12">
 <ul>
     
-    <li><a href="">Technological University Dublin</a></li>
-    <li><a href="">University College Cork</a></li>
-    <li><a href="">University of Galway</a></li>
-    <li><a href="">University of Limerick</a></li>
-    <li><a href="">Dublin City University</a></li>
-    <li><a href="">Maynooth University</a></li>
-    <li><a href="">Royal College of Surgeons</a></li>
+    <li><a href="https://www.tudublin.ie/">Technological University Dublin</a></li>
+    <li><a href="https://www.ucc.ie/">University College Cork</a></li>
+    <li><a href="https://www.nuigalway.ie/">University of Galway</a></li>
+    <li><a href="https://www.ul.ie/">University of Limerick</a></li>
+    <li><a href="https://www.dcu.ie/">Dublin City University</a></li>
+    <li><a href="https://www.maynoothuniversity.ie/">Maynooth University</a></li>
+    <li><a href="https://www.rcs.ie/">Royal College of Surgeons</a></li>
     
 </ul>
 </div>

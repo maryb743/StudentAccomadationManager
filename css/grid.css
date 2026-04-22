@@ -34,37 +34,27 @@
 .width-11 { grid-column: span 11; }
 .width-12 { grid-column: span 12; }
 
-/* Responsive adjustments */
-
-/* Ensure the search bar spans 4 columns */
 .searchBox {
     grid-column: span 4;
 }
 
-/* Make the header image fit the entire header */
-header img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Media queries for responsiveness */
+/* Adjustments for smaller screens */
 @media (max-width: 768px) {
     .container {
-        grid-template-columns: repeat(6, 1fr); /* Adjust grid for smaller screens */
+        grid-template-columns: repeat(6, 1fr); 
     }
 
     .searchBox {
-        grid-column: span 6; /* Full width on smaller screens */
+        grid-column: span 6; 
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        grid-template-columns: repeat(4, 1fr); /* Adjust grid for very small screens */
+        grid-template-columns: repeat(4, 1fr); 
     }
 
     .searchBox {
-        grid-column: span 4; /* Full width on very small screens */
+        grid-column: span 4; 
     }
 }
