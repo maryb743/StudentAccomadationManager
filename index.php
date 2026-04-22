@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/header_styles.css">
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/fom_styles.css">
+    <link rel="stylesheet" href="css/loc_styles.css">
 
     <title>Student Accommodation Manager</title>
 
@@ -83,6 +84,31 @@
     </div>
 </section>
 <!-- end of fom -->
+
+<!-- Start of List of Universitys -->
+<section class="listOfColleges">
+    <div class="container college-container">
+        <div class="width-12">
+            <h2>Our Top University Partners</h2>
+        </div>
+<div class="width-12">
+<ul>
+    
+    <li><a href="">Technological University Dublin</a></li>
+    <li><a href="">University College Cork</a></li>
+    <li><a href="">University of Galway</a></li>
+    <li><a href="">University of Limerick</a></li>
+    <li><a href="">Dublin City University</a></li>
+    <li><a href="">Maynooth University</a></li>
+    <li><a href="">Royal College of Surgeons</a></li>
+    
+</ul>
+</div>
+
+</div>
+
+</section>
+<!-- End of List of Universitys -->
     
 </body>
 

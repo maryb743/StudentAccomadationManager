@@ -1,0 +1,38 @@
+.listOfColleges{
+background-color: white;
+max-height: 300px;
+}
+
+.listOfColleges h2{
+    color: #000000;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.college-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.listOfColleges ul{
+   display: flex;
+   gap: 10px;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+}
+
+.listOfColleges a{
+    background-color:#efedff; 
+    color: #4ea8de; 
+    padding: 5px;
+    font-weight: 700;
+    font-size: 25px;
+    display:inline-block;
+    border-radius:4px;
+    }
+
