@@ -75,7 +75,6 @@
             <div class="house house3">
                 <h3>The best deals!</h3>
             </div>
-            <?php session_start(); ?>
             <a href="<?php echo isset($_SESSION['user_id']) ? 'admin/account.php' : 'admin/login.php'; ?>">
                 Find out more!<i class="fa-solid fa-arrow-right"></i>
             </a>

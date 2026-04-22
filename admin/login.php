@@ -1,4 +1,5 @@
 <?php
+//login page for users to access their account and bookings
 session_start();
 require '../includes/db.php'; //connect to db
 
@@ -20,8 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         header("Location: account.php");
         exit();
+
     } else {
+
         echo "Invalid login";
+        
     }
 }
 ?>
@@ -36,11 +40,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <h2>Login</h2>
 
 <?php if ($error): ?>
+
     <p style="color:red;"><?php echo $error; ?></p>
+
 <?php endif; ?>
 
 <form method="POST" action="login.php">
+
     <input type="text" name="username" placeholder="Username" required>
     <input type="password" name="password" placeholder="Password" required>
     <button type="submit">Login</button>
+
 </form>
