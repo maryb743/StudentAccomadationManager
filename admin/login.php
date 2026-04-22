@@ -21,16 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $checkResult = $checkStmt->get_result();
         
         if ($checkResult->num_rows > 0) {
-            $error = "Username already exists.";
+            $error = "Username already exists";
         } else {
             $insertStmt = $conn->prepare("INSERT INTO users (username, password, role) VALUES (?, ?, 'student')");
             $insertStmt->bind_param("ss", $username, $hashedPassword);
             
             if ($insertStmt->execute()) {
-                $success = "Account created! Please login.";
+                $success = "Account created! Please login";
                 $action = 'login';
             } else {
-                $error = "Error creating account.";
+                $error = "Error creating account";
             }
         }
     } else {
