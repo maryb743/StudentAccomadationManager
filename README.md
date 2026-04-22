@@ -1,8 +1,7 @@
-Overview
 The Student Accommodation Manager is a web-based CRUD application designed to help students search for, view, and manage accommodation bookings. 
 The system includes user authentication, role-based access, and session management to ensure secure access to user accounts and booking features.
 
-Features
+Main Features -
 User System
 Account Management
 Booking System
@@ -11,14 +10,14 @@ Users can manage their accommodation bookings after logging in
 Search Functionality
 Search available accommodation listings
 
-Stack
+Stack - 
 PHP 
 phpMyAdmin
 HTML
 CSS
 XAMPP 
 
-Security Features
+Security Features -
 Password hashing for secure storage
 password_verify() is used during login to validate credentials.
 Sessions are used to maintain login state across pages.
