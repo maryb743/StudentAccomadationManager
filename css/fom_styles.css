@@ -1,16 +1,16 @@
 /* Styles for the housing options section */
 
-.housingOptions{
+.findOutMore{
     background-color: #ffffff;
 }
 
-.house-container {
+.info-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 20px;
     width: 100%;
 }
-.house-item {
+.info-item {
     grid-column: span 4;
     width: 100%;
     box-sizing: border-box;
@@ -20,20 +20,20 @@
     border-radius: 15px;
 }
 
-.housingOptions p {
+.findOutMore p {
     color: #000000;
     font-size: 15px;
     padding: 5px;
 }
 
-.housingOptions a {
+.findOutMore a {
     color: #000000;
     text-decoration: none;
     padding: 5px;
     display: inline-block;
 }
 
-.housingOptions .house{
+.findOutMore .info{
     background-size: cover;
     background-position: center;
     min-height: 250px;
@@ -41,7 +41,7 @@
     place-items: center;
 }
 
-.housingOptions .house1{
+.findOutMore .desc1{
     background-image: url(../images/hoImage1.jpg);
     max-width: 450px;
     border-radius: 15px;
@@ -49,7 +49,7 @@
     border: 5px solid #ffffff;
 }
 
-.housingOptions .house2{
+.findOutMore .desc2{
     background-image: url(../images/hoImage2.jpg);
     max-width: 550px;
         border-radius: 15px;
@@ -59,7 +59,7 @@
     border: 5px solid #ffffff;
 }
 
-.housingOptions .house3{
+.findOutMore .desc3{
     background-image: url(../images/hoImage3.jpg);
     border-radius: 20px;
         border-radius: 15px;
@@ -68,15 +68,15 @@
     border: 5px solid #ffffff;
 }
 
-.housingOptions .house h3{
+.findOutMore .info h3{
     color: white;
 }
 
-.housingOptions a{
+.findOutMore a{
     color: #000000;
     text-decoration: none;
 }
 
-.housingOptions p{
+.findOutMore p{
     margin-bottom: 10px;
 }

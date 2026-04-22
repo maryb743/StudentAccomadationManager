@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/header_styles.css">
     <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/houseops_styles.css">
+    <link rel="stylesheet" href="css/fom_styles.css">
 
     <title>Student Accommodation Manager</title>
 
@@ -53,26 +53,26 @@
     </header>
     <!-- end of header -->
     
-<!--start of houseops -->
-<section class="housingOptions">
-    <div class="container house-container">
+<!--start of fom -->
+<section class="findOutMore">
+    <div class="container info-container">
 
-        <div class="house-item">
-            <div class="house house1">
+        <div class="info-item">
+            <div class="info desc1">
                 <h3>Our picks</h3>
             </div>
             <p>Discover your new home with recommendations from students.</p>
         </div>
 
-        <div class="house-item">
-            <div class="house house2">
+        <div class="info-item">
+            <div class="info desc2">
                 <h3>Highest Ranking</h3>
             </div>
             <p>Discover the top-rated properties based on student reviews.</p>
         </div>
       
-        <div class="house-item">
-            <div class="house house3">
+        <div class="info-item">
+            <div class="info desc3">
                 <h3>The best deals!</h3>
             </div>
             <a href="<?php echo isset($_SESSION['user_id']) ? 'admin/account.php' : 'admin/login.php'; ?>">
@@ -82,7 +82,7 @@
 
     </div>
 </section>
-<!-- end of houseops -->
+<!-- end of fom -->
     
 </body>
 
