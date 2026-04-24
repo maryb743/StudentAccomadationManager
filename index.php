@@ -44,8 +44,11 @@
             <h1>Search, find and book your new home!</h1>
 
             <div class="searchBox">
-                <form action="">
-                    <input type="text" value="Search"><button class="searchButton">Search</button>
+                <form action="admin/search.php" method="GET">
+
+                    <input type="text" name="query" placeholder="Search accommodation options...">
+                    <button class="searchButton">Search</button>
+
                 </form>
             </div>
         </div>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+//require authentication to access account page
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -10,6 +11,7 @@ require __DIR__ . '/../includes/db.php';
 
 $user_id = $_SESSION['user_id'];
 
+//fetch user details for account page display
 $stmt = $conn->prepare("SELECT username, role, created_at FROM users WHERE id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
@@ -23,6 +25,7 @@ $isNew = (time() - $created) < 86400;
 
 $message = "Welcome, " . htmlspecialchars($user['username']) . "!";
 
+//personalized welcome message for new student users
 if ($user['role'] === 'student' && $isNew) {
     $message = "Welcome to Student Accommodation Manager, " . htmlspecialchars($user['username']) . "! 🎉";
 } elseif ($user['role'] === 'student') {
@@ -48,7 +51,12 @@ if ($user['role'] === 'student' && $isNew) {
     <p><strong>Member Since: </strong> <?php echo $user['created_at']; ?></p>
 
     <a href="bookings.php">Manage Bookings</a><br>
-    <a href="search.php">Search Properties</a><br>
+    <form action="search.php" method="GET">
+
+        <input type="text" name="query" placeholder="Search accommodation...">
+        <button type="submit">Search</button>
+
+    </form>
     <a href="logout.php">Logout</a><br>
     <a href="../index.php">←Return to home</a>
 
