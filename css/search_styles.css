@@ -1,0 +1,79 @@
+/* Styles for the housing options section */
+
+.search-section {
+    padding: 40px 0;
+}
+
+.search-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+.search-card {
+    grid-column: span 4;
+    width: 100%;
+    box-sizing: border-box;
+
+    background-color: #dedada;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.search-card p {
+    color: #000000;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.search-card a {
+    color: #000000;
+    text-decoration: none;
+    padding: 5px;
+    display: inline-block;
+}
+
+.search-card .info{
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+    display: grid;
+    place-items: center;
+}
+
+.search-card .desc1{
+    max-width: 450px;
+    border-radius: 15px;
+    border-color: #ffffff;
+    border: 5px solid #ffffff;
+}
+
+.search-card .desc2{
+    max-width: 550px;
+        border-radius: 15px;
+            border-radius: 15px;
+    border-color: #ffffff;
+    
+    border: 5px solid #ffffff;
+}
+
+.search-card .desc3{
+    border-radius: 20px;
+        border-radius: 15px;
+    border-color: #ffffff;
+    
+    border: 5px solid #ffffff;
+}
+
+.search-card .info h3{
+    color: white;
+}
+
+.search-card .findOutMore a{
+    color: #000000;
+    text-decoration: none;
+}
+
+.findOutMore p{
+    margin-bottom: 10px;
+}

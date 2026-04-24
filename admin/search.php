@@ -1,58 +1,112 @@
 <?php
-require '../includes/auth.php'; //requires account to access
-require '../includes/db.php'; //connect to database
+require '../includes/auth.php'; //makes sure user is logged in
+require '../includes/db.php';   //connect to database
 
-//get search query from URL parameters
+//get search query from URL
 $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
+    <link rel="stylesheet" href="../css/search_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
 <h1>Search Results</h1>
 
-<?php if ($query): ?>
+<!-- Search bar -->
+<form action="search.php" method="GET">
+    <input 
+        type="text" 
+        name="query" 
+        placeholder="Search accommodation..." 
+        value="<?php echo htmlspecialchars($query); ?>"
+    >
+    <button type="submit">Search</button>
+</form>
 
-    <?php
-    //adjust table/columns structure
-    $stmt = $conn->prepare("SELECT * FROM housing_options WHERE name LIKE ? OR location LIKE ?");
-    $searchTerm = "%$query%";
-    $stmt->bind_param("ss", $searchTerm, $searchTerm);
+<form action="search.php" method="GET" style="margin-top:10px;">
+    <button type="submit">Show All listings</button>
+</form>
+
+<a href="account.php">← Back to Account</a>
+
+<?php
+    if ($query !== '') {
+        echo '<h2>Results for "' . htmlspecialchars($query) . '"</h2>';
+
+        $stmt = $conn->prepare(
+            "SELECT * FROM housing_options 
+            WHERE name LIKE ? OR location LIKE ? OR description LIKE ?"
+        );
+
+        $searchTerm = "%$query%";
+        $stmt->bind_param("sss", $searchTerm, $searchTerm, $searchTerm);
+    } else {
+        echo '<h2>All Properties</h2>';
+
+        $stmt = $conn->prepare("SELECT * FROM housing_options");
+    }
+
     $stmt->execute();
     $result = $stmt->get_result();
-    ?>
+?>
 
-    <?php if ($result->num_rows > 0): ?>
-        <!-- display results -->
-        <ul>
+<?php if ($result->num_rows > 0): ?>
+
+    <!-- Styled results section -->
+    <section class="search-section">
+        <div class="container search-container">
+
             <?php while ($row = $result->fetch_assoc()): ?>
                 
-                <li>
-                    <h3><?php echo htmlspecialchars($row['name']); ?></h3>
-                    <p><?php echo htmlspecialchars($row['location']); ?></p>
-                    <p>€<?php echo htmlspecialchars($row['price']); ?></p>
+                <div class="search-card">
 
-                    <!-- future link to booking page -->
-                    <a href="booking.php?id=<?php echo $row['id']; ?>">View / Book</a>
-                </li>
+                    <div class="info desc<?php echo ($row['id'] % 3) + 1; ?>">
+                        <?php
+                            $imageSrc = trim($row['image']);
+                            if ($imageSrc !== '' && !preg_match('#^(?:[a-z]+:)?//#i', $imageSrc) && strpos($imageSrc, '/') !== 0) {
+                                $imageSrc = '../' . $imageSrc;
+                            }
+                        ?>
+
+                        <img 
+                            src="<?php echo htmlspecialchars($imageSrc); ?>" 
+                            alt="<?php echo htmlspecialchars($row['name']); ?>"
+                            style="width:100%; height:180px; object-fit:cover; border-radius:10px;"
+                        >
+
+                        <h3><?php echo htmlspecialchars($row['name']); ?></h3>
+                    </div>
+
+                    <p><?php echo htmlspecialchars($row['description']); ?></p>
+
+                    <p><strong>Location:</strong> 
+                        <?php echo htmlspecialchars($row['location']); ?>
+                    </p>
+
+                    <p><strong>€<?php echo htmlspecialchars($row['price']); ?>/month</strong></p>
+
+                    <!-- future booking link -->
+                    <a href="booking.php?id=<?php echo $row['id']; ?>">
+                        Book <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
 
             <?php endwhile; ?>
 
-        </ul>
-
-    <?php else: ?>
-        <p>No results found.</p>
-    <?php endif; ?>
+        </div>
+    </section>
 
 <?php else: ?>
-    <p>Please enter a search term.</p>
+    <p>No results found.</p>
 <?php endif; ?>
-
 </body>
 </html>
