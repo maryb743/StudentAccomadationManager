@@ -1,4 +1,4 @@
-The Student Accommodation Manager is a web-based CRUD application designed to help students search for, view, and manage accommodation bookings. 
+Student Accommodation Manager is a web-based CRUD application designed to help students search for, view and manage accommodation bookings. 
 The system includes user authentication, role-based access, and session management to ensure secure access to user accounts and booking features.
 
 Main Features -
