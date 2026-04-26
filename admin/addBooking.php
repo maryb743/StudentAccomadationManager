@@ -2,11 +2,13 @@
 require __DIR__ . '/../includes/auth.php';
 require __DIR__ . '/../includes/db.php';
 
+//get housing ID from URL
 $housing_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $message = '';
 $error = '';
 $listing = null;
 
+//getlisting details from database
 if ($housing_id > 0) {
     $stmt = $conn->prepare("SELECT * FROM housing_options WHERE housing_id = ?");
     $stmt->bind_param("i", $housing_id);
@@ -15,23 +17,27 @@ if ($housing_id > 0) {
     $listing = $result->fetch_assoc();
 }
 
+//error handling
 if (!$listing) {
     $error = 'Selected listing was not found. Please go back and choose a valid option.';
 }
 
+//handle booking form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_now']) && $listing) {
     $start_date = trim($_POST['start_date'] ?? '');
     $end_date = trim($_POST['end_date'] ?? '');
-
+    //validate dates
     if ($start_date === '' || $end_date === '') {
         $error = 'Please select both a start date and an end date.';
     } else {
         $start_ts = strtotime($start_date);
         $end_ts = strtotime($end_date);
 
+        //error handling
         if (!$start_ts || !$end_ts || $end_ts <= $start_ts) {
             $error = 'Please choose a valid date range with end date after start date.';
         } else {
+            //calculate total price based on duration and listing price
             $days = ceil(($end_ts - $start_ts) / 86400);
             $months = max(1, ceil($days / 30));
             $total_price = $listing['price'] * $months;
@@ -39,14 +45,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_now']) && $listi
             $created_at = date('Y-m-d H:i:s');
             $user_id = $_SESSION['user_id'];
 
+            //insert booking into database
             $insert = $conn->prepare(
                 "INSERT INTO bookings (user_id, housing_id, start_date, end_date, total_price, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)"
             );
 
+            //error handling
             if (!$insert) {
                 $error = 'Unable to prepare booking query.';
             } else {
                 $insert->bind_param(
+                    
                     'iissdss',
                     $user_id,
                     $housing_id,
@@ -57,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_now']) && $listi
                     $created_at
                 );
 
+                //error handling
                 if ($insert->execute()) {
                     $message = 'Booking request submitted successfully! You can manage your bookings from the Bookings page.';
                 } else {

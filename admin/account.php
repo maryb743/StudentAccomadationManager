@@ -87,7 +87,7 @@ if ($user['role'] === 'student' && $isNew) {
 
 
             <div class="account-actions">
-                <a class="button secondary" href="<?php echo dirname($_SERVER['PHP_SELF']); ?>/showBooking.php">Manage Bookings</a>
+                <a class="button secondary" href="<?php echo dirname($_SERVER['PHP_SELF']); ?>/showBooking.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">Manage Bookings</a>
                 
                 <!-- search fprm -->
                 <form class="search-form" action="<?php echo dirname($_SERVER['PHP_SELF']); ?>/search.php" method="GET">
@@ -99,9 +99,9 @@ if ($user['role'] === 'student' && $isNew) {
                     <form method="POST" onsubmit="return confirm('Are you sure you want to delete your account?');">
                         <button type="submit" name="delete_account" value="1" class="button danger">Delete Account</button>
                     </form>
-                    <a class="button logout" href="logout.php">Logout</a>
+                    <a class="button logout" href="logout.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">Logout</a>
                 </div>
-                <a class="return-link" href="../index.php">←Return to home</a>
+                <a class="return-link" href="../index.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">←Return to home</a>
             </div>
         </div>
     </div>

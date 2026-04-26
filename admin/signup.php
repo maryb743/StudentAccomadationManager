@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             </form>
 
-            <a class="return-link" href="../index.php">🠔Return to home</a>
+            <a class="return-link" href="../index.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">🠔Return to home</a>
         </div>
     </div>
 </body>

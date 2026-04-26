@@ -33,8 +33,8 @@
 
             <ul>
                 <?php if (isset($_SESSION['user_id'])): ?>
-                    <li><a href="admin/account.php">Account</a></li>
-                    <li><a href="admin/logout.php">Logout</a></li>
+                    <li><a href="admin/account.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">Account</a></li>
+                    <li><a href="admin/logout.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">Logout</a></li>
                 <?php else: ?>
                     <li><a href="admin/login.php">Login or Signup</a></li>
 

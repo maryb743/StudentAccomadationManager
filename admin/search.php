@@ -38,7 +38,7 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 </form>
 
 <!-- Back to account link -->
-<a href="account.php">← Back to Account</a>
+<a href="account.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">← Back to Account</a>
 
 <?php
 //show all listings unless search query has been done then show results
