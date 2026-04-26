@@ -56,9 +56,9 @@
     display: inline-block;
 }
 
-/* Styles for each description box in the find out more section */
+/* Styles for each description box  and imagesin the find out more section */
 .findOutMore .desc1{
-    background-image: url(../images/hoImage1.jpg);
+    background-image: url("/StudentAccomadationManager/images/hoImage1.jpg");
     max-width: 450px;
     border-radius: 15px;
     border-color: #ffffff;
@@ -66,26 +66,22 @@
 }
 
 .findOutMore .desc2{
-    background-image: url(../images/hoImage2.jpg);
+    background-image: url("/StudentAccomadationManager/images/hoImage2.jpg");
     max-width: 550px;
     border-radius: 15px;
-    border-radius: 15px;
     border-color: #ffffff;
-    
     border: 5px solid #ffffff;
 }
 
 .findOutMore .desc3{
-    background-image: url(../images/hoImage3.jpg);
-    border-radius: 20px;
-        border-radius: 15px;
+    background-image: url("/StudentAccomadationManager/images/hoImage3.jpg");
+    border-radius: 15px;
     border-color: #ffffff;
-    
     border: 5px solid #ffffff;
 }
 
 .findOutMore .desc4{
-    background-image: url(/images/hoImage4.jpg);
+    background-image: url("/StudentAccomadationManager/images/hoImage4.jpg");
     max-width: 450px;
     border-radius: 15px;
     border-color: #ffffff;
@@ -93,17 +89,15 @@
 }
 
 .findOutMore .desc5{
-    background-image: url(/images/hoImage5.jpg);
+    background-image: url("/StudentAccomadationManager/images/hoImage5.jpg");
     max-width: 550px;
-    border-radius: 15px;
     border-radius: 15px;
     border-color: #ffffff;
     border: 2px solid #ffffff;
 }
 
 .findOutMore .desc6{
-    background-image: url(/images/hoImage6.jpg);
-    border-radius: 20px;
+    background-image: url("/StudentAccomadationManager/images/hoImage6.jpg");
     border-radius: 15px;
     border-color: #ffffff;
     border: 2px solid #ffffff;

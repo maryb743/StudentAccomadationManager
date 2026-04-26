@@ -1,7 +1,6 @@
-<!-- Search Page -->
 <?php
-require '../includes/auth.php'; //makes sure user is logged in
-require '../includes/db.php';   //connect to database
+require '../includes/auth.php'; // makes sure user is logged in
+require '../includes/db.php';   // connect to database
 
 //get search query from URL
 $query = isset($_GET['query']) ? trim($_GET['query']) : '';
@@ -11,129 +10,109 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Results</title>
-    <link rel="stylesheet" href="../css/search_styles.css">
+    
+    <link rel="stylesheet" href="../css/search_styles.css?v=2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <title>Search Results</title>
 </head>
 
 <body>
+    <div class="search-page-container">
+        <div class="search-box">
+            <h1>Search Results</h1>
 
-<h1>Search Results</h1>
+            <!-- Search bar -->
+            <form action="search.php" method="GET">
+                <input 
+                    type="text" 
+                    name="query" 
+                    placeholder="Search accommodation..." 
+                    value="<?php echo htmlspecialchars($query); ?>"
+                >
+                <button type="submit">Search</button>
+            </form>
 
-<!-- Search bar -->
-<form action="search.php" method="GET">
-    <input 
+            <!-- Show all listings button -->
+            <form action="search.php" method="GET">
+                <button type="submit">Show All listings</button>
+            </form>
 
-        type="text" 
-        name="query" 
-        placeholder="Search accommodation..." 
-        value="<?php echo htmlspecialchars($query); ?>"
+            <!-- Back to account link -->
+            <a class="back-link" href="account.php">← Back to Account</a>
 
-    >
-    <button type="submit">Search</button>
+            <?php
+            //show all listings unless search query has been done then show results
+                if ($query !== '') {
+                    echo '<h2>Results for "' . htmlspecialchars($query) . '"</h2>';
 
-</form>
+                    $stmt = $conn->prepare(
+                        "SELECT * FROM housing_options 
+                        WHERE name LIKE ? OR location LIKE ? OR description LIKE ?"
+                    );
 
-<!-- Show all listings button -->
-<form action="search.php" method="GET" style="margin-top:10px;">
+                    $searchTerm = "%$query%";
+                    $stmt->bind_param("sss", $searchTerm, $searchTerm, $searchTerm);
 
-    <button type="submit">Show All listings</button>
+                } else {
+                    echo '<h2>All Properties</h2>';
 
-</form>
+                    $stmt = $conn->prepare("SELECT * FROM housing_options");
+                }
 
-<!-- Back to account link -->
-<a href="account.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">← Back to Account</a>
+                $stmt->execute();
+                $result = $stmt->get_result();
+            ?>
+    
+     <!-- display search results-->
+            <?php if ($result->num_rows > 0): ?>
+                <section class="search-section">
 
-<?php
-//show all listings unless search query has been done then show results
-    if ($query !== '') {
+                    <div class="results-grid">
 
-        echo '<h2>Results for "' . htmlspecialchars($query) . '"</h2>';
+                        <?php while ($row = $result->fetch_assoc()): ?>
+                            <div class="result-card">
 
-        $stmt = $conn->prepare(
-            "SELECT * FROM housing_options 
-            WHERE name LIKE ? OR location LIKE ? OR description LIKE ?"
-        );
+                                <?php
+                                    $imageSrc = trim($row['image']);
 
-        $searchTerm = "%$query%";
-        $stmt->bind_param("sss", $searchTerm, $searchTerm, $searchTerm);
+                                    if ($imageSrc !== '') {
+                                        if (!preg_match('#^(?:[a-z]+:)?//#i', $imageSrc)
+                                            && strpos($imageSrc, '/') !== 0
+                                            && strpos($imageSrc, './') !== 0
+                                            && strpos($imageSrc, '../') !== 0
+                                        ) {
+                                            $imageSrc = '../' . $imageSrc;
+                                        }
+                                    }
 
-    } else {
-        echo '<h2>All Properties</h2>';
+                                    if ($imageSrc === '') {
+                                        $imageSrc = '../images/searchImage1.jpg';
+                                    }
+                                ?>
 
-        $stmt = $conn->prepare("SELECT * FROM housing_options");
-    }
+                                <img 
+                                    src="<?php echo htmlspecialchars($imageSrc); ?>" 
+                                    alt="<?php echo htmlspecialchars($row['name']); ?>"
+                                >
 
-    $stmt->execute();
-    $result = $stmt->get_result();
-?>
-
-<?php if ($result->num_rows > 0): ?>
-   <!-- loop through results and display them -->
-
-    <section class="search-section">
-
-        <div class="container search-container">
-
-            <?php while ($row = $result->fetch_assoc()): ?>
-                
-                <!-- -->
-                <div class="search-card">
-                    <!-- handle image paths that are stored as relative paths in the database -->
-                    <div class="info desc<?php echo ($row['housing_id'] % 3) + 1; ?>">
-                        <?php
-                            $imageSrc = trim($row['image']);
-                            if ($imageSrc !== '' && !preg_match('#^(?:[a-z]+:)?//#i', $imageSrc) && strpos($imageSrc, '/') !== 0) {
-                                $imageSrc = '../' . $imageSrc;
-                            }
-                        ?>
-
-                    <!--display image if it exists, otherwise show placeholder -->
-                        <img 
-                            src="<?php echo htmlspecialchars($imageSrc); ?>" 
-                            alt="<?php echo htmlspecialchars($row['name']); ?>"
-                            style="width:100%; height:180px; object-fit:cover; border-radius:10px;"
-                        >
-
-                        <h3><?php echo htmlspecialchars($row['name']); ?></h3>
-
+                                <h3><?php echo htmlspecialchars($row['name']); ?></h3>
+                                <p><?php echo htmlspecialchars($row['description']); ?></p>
+                                <p class="meta"><strong>Location:</strong> <?php echo htmlspecialchars($row['location']); ?></p>
+                                <p class="price">€<?php echo htmlspecialchars($row['price']); ?>/month</p>
+                                <a class="book-btn" href="addBooking.php?id=<?php echo $row['housing_id']; ?>">Book <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        <?php endwhile; ?>
                     </div>
-
-                <p><?php echo htmlspecialchars($row['description']); ?></p>
-
-                <p><strong>Location:</strong> 
-
-                    <?php echo htmlspecialchars($row['location']); ?>
-
-                </p>
-
-                <p><strong>€<?php echo htmlspecialchars($row['price']); ?>/month</strong></p>
-
-                <!-- link to booking page -->
-                <a href="addBooking.php?id=<?php echo $row['housing_id']; ?>">
-
-                    Book <i class="fa-solid fa-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-            <?php endwhile; ?>
-
+                </section>
+            <?php else: ?>
+                <p class="no-results">No results found.</p>
+            <?php endif; ?>
         </div>
-    </section>
-
-    <?php else: ?>
-
-        <p>No results found.</p>
-        
-    <?php endif; ?>
-
-    </body>
+    </div>
+</body>
 
 </html>
 <!-- End HTML form for signup -->
