@@ -71,7 +71,7 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
                 
                 <div class="search-card">
 
-                    <div class="info desc<?php echo ($row['id'] % 3) + 1; ?>">
+                    <div class="info desc<?php echo ($row['housing_id'] % 3) + 1; ?>">
                         <?php
                             $imageSrc = trim($row['image']);
                             if ($imageSrc !== '' && !preg_match('#^(?:[a-z]+:)?//#i', $imageSrc) && strpos($imageSrc, '/') !== 0) {
@@ -98,7 +98,7 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
                     <p><strong>€<?php echo htmlspecialchars($row['price']); ?>/month</strong></p>
 
                     <!-- link to booking page -->
-                    <a href="booking.php?id=<?php echo $row['id']; ?>">
+                    <a href="addBooking.php?id=<?php echo $row['housing_id']; ?>">
                         Book <i class="fa-solid fa-arrow-right"></i>
                     </a>
 

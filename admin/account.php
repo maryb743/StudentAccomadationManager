@@ -66,39 +66,45 @@ if ($user['role'] === 'student' && $isNew) {
 <!DOCTYPE html>
 <html>
 <head>
-
     <title>My Account</title>
-
+    <link rel="stylesheet" href="../css/account_styles.css">
 </head>
     <body>
+    <div class="account-page">
+        <div class="account-card">
+            <h2>My Account</h2>
+            <h3><?php echo $message; ?></h3>
 
-    <h2>My Account</h2>
+            <?php if ($error): ?>
+                <p class="message error"><?php echo htmlspecialchars($error); ?></p>
+            <?php endif; ?>
 
-    <h3><?php echo $message; ?></h3>
+            <div class="account-details">
+                <p><span>Username:</span> <?php echo htmlspecialchars($user['username']); ?></p>
+                <p><span>Role:</span> <?php echo htmlspecialchars($user['role']); ?></p>
+                <p><span>Member Since:</span> <?php echo $user['created_at']; ?></p>
+            </div>
 
-    <?php if ($error): ?>
-        <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
-    <?php endif; ?>
 
-    <p><strong>Username: </strong> <?php echo htmlspecialchars($user['username']); ?></p>
-    <p><strong>Role: </strong> <?php echo htmlspecialchars($user['role']); ?></p>
-    <p><strong>Member Since: </strong> <?php echo $user['created_at']; ?></p>
-
-    <a href="bookings.php">Manage Bookings</a><br>
-    <form action="search.php" method="GET">
-
-        <input type="text" name="query" placeholder="Search accommodation...">
-        <button type="submit">Search</button>
-
-    </form>
-
-    <form method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
-        <button type="submit" name="delete_account" value="1" style="color:red;">Delete Account</button>
-    </form>
-
-    <a href="logout.php">Logout</a><br>
-    <a href="../index.php">←Return to home</a>
-
+            <div class="account-actions">
+                <a class="button secondary" href="<?php echo dirname($_SERVER['PHP_SELF']); ?>/showBooking.php">Manage Bookings</a>
+                
+                <!-- search fprm -->
+                <form class="search-form" action="<?php echo dirname($_SERVER['PHP_SELF']); ?>/search.php" method="GET">
+                    <input type="text" name="query" placeholder="Search accommodation...">
+                    <button type="submit" class="button">Search</button>
+                </form>
+                <!-- search form -->
+                <div class="account-row">
+                    <form method="POST" onsubmit="return confirm('Are you sure you want to delete your account?');">
+                        <button type="submit" name="delete_account" value="1" class="button danger">Delete Account</button>
+                    </form>
+                    <a class="button logout" href="logout.php">Logout</a>
+                </div>
+                <a class="return-link" href="../index.php">←Return to home</a>
+            </div>
+        </div>
+    </div>
     </body>
 
 </html>

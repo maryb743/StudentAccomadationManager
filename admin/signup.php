@@ -4,11 +4,11 @@ require __DIR__ . '/../includes/db.php';
 
 $error = "";
 $success = "";
-<!-- handle form submission -->
+//handle form submission 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
-    <!-- validate input -->
+    //validate input -
     if ($username === '' || $password === '') {
         $error = "Please enter both username and password.";
     } else {
@@ -18,13 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$checkStmt) {
             die("Prepare failed: " . $conn->error);
         }
-        <!- check if username already exists -->
+        //check if username already exists -
         $checkStmt->bind_param("s", $username);
         $checkStmt->execute();
         $checkResult = $checkStmt->get_result();
 
 
-        <!- if username exists, show error, otherwise create account -->
+        // if username exists, show error, otherwise create account -
         if ($checkResult->num_rows > 0) {
             $error = "Username already exists";
         } else {
@@ -51,29 +51,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Sign Up</title>
-       <link rel="stylesheet" href="../css/log_sign_styles.css">
 </head>
 <body>
+    <div class="login-signup-container">
+        <div class="login-box">
+            <h2>Sign Up</h2>
 
-<h2>Sign Up</h2>
+            <?php if ($error): ?>
+                <p class="message error"><?php echo $error; ?></p>
+            <?php endif; ?>
 
-<?php if ($error): ?>
-    <p style="color:red;"><?php echo $error; ?></p>
-<?php endif; ?>
+            <?php if ($success): ?>
+                <p class="message success"><?php echo $success; ?></p>
+            <?php endif; ?>
 
-<?php if ($success): ?>
-    <p style="color:green;"><?php echo $success; ?></p>
-<?php endif; ?>
+            <form method="POST" action="signup.php">
 
-<form method="POST" action="signup.php">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Sign Up</button>
-    <p>Already have an account? <a href="login.php">Login</a></p>
-</form>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+                <p class="form-link">Already have an account? <a href="login.php">Login</a></p>
 
-<a href="../index.php">←Return to home</a>
+            </form>
 
+            <a class="return-link" href="../index.php">🠔Return to home</a>
+        </div>
+    </div>
 </body>
 </html>
 <!-- End HTML form for signup -->

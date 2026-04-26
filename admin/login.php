@@ -46,26 +46,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="../css/log_sign_styles.css">
 </head>
 <body>
+    <div class="login-signup-container">
+            <div class="login-box">
+                <h2>Login</h2>
 
-<h2>Login</h2>
+                <!-- error message based on registration outcome -->
+                <?php if ($error): ?>
+                    <p class="message error"><?php echo $error; ?></p>
+                <?php endif; ?>
 
-<!-- error message based on registration outcome -->
-<?php if ($error): ?>
-    <p style="color:red;"><?php echo $error; ?></p>
-<?php endif; ?>
+                <!-- login form -->
+                <form method="POST" action="login.php">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                    <p class="form-link">Don't have an account? <a href="signup.php">Sign Up</a></p>
+                </form>
 
-<!-- login form -->
-<form method="POST" action="login.php">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-    <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
-</form>
-
-<a href="../index.php">←Return to home</a>
+                <a class="return-link" href="../index.php">🠔Return to home</a>
+            </div>
+    </div>
 </body>
 </html>
 <!-- End HTML form for login -->

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/fom_styles.css">
     <link rel="stylesheet" href="css/loc_styles.css">
+    <link rel="stylesheet" href="../css/log_sign_styles.css">
     <link rel="stylesheet" href="css/footer.css">
 
     <title>Student Accommodation Manager</title>
@@ -137,7 +138,7 @@
             <div class="info desc6">
                 <h3>Find your new home now</h3>
             </div>
-            <a href="<?php echo isset($_SESSION['user_id']) ? 'admin/bookings.php' : 'admin/login.php'; ?>">
+            <a href="<?php echo isset($_SESSION['user_id']) ? 'admin/showBooking.php' : 'admin/login.php'; ?>">
                 Book with us today!<i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
