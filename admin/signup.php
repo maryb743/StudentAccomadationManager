@@ -1,3 +1,4 @@
+<!-- Sign Up Page -->
 <?php
 session_start();
 require __DIR__ . '/../includes/db.php';

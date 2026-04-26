@@ -1,3 +1,4 @@
+<!-- Login Page -->
 <?php
 session_start();
 require __DIR__ . '/../includes/db.php';
@@ -67,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" name="password" placeholder="Password" required>
                     <button type="submit">Login</button>
                     <p class="form-link">Don't have an account? <a href="signup.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">Sign Up</a></p>
-                    
+
                 </form>
 
                 <a class="return-link" href="../index.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">🠔Return to home</a>

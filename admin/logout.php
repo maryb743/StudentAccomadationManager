@@ -1,3 +1,4 @@
+<!-- Logout option -->
 <?php
 //allow user to log out and destroy session data
 session_start();

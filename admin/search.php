@@ -1,3 +1,4 @@
+<!-- Search Page -->
 <?php
 require '../includes/auth.php'; //makes sure user is logged in
 require '../includes/db.php';   //connect to database
@@ -133,6 +134,6 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
     <?php endif; ?>
 
     </body>
-    
+
 </html>
 <!-- End HTML form for signup -->

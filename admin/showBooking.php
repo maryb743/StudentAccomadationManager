@@ -1,3 +1,4 @@
+<!-- Show Booking Page -->
 <?php
 require __DIR__ . '/../includes/auth.php';
 require __DIR__ . '/../includes/db.php';
@@ -135,7 +136,7 @@ $stmt = $conn->prepare(
      JOIN housing_options h ON b.housing_id = h.housing_id
      WHERE b.user_id = ?
      ORDER BY b.created_at DESC"
-     
+
 );
 
 //error handling
@@ -232,7 +233,7 @@ $result = $stmt->get_result();
 
         <?php endif; ?>
 
-        <a class="return-link" href="account.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">← Back to Account</a>
+        <a class="return-link" href="account.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">🠔Back to Account</a>
     </div>
 
     </div>

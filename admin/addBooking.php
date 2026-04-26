@@ -1,3 +1,4 @@
+<!-- Add Booking Page -->
 <?php
 require __DIR__ . '/../includes/auth.php';
 require __DIR__ . '/../includes/db.php';
@@ -131,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_now']) && $listi
             <p>Please return to search and choose a valid accommodation option.</p>
         <?php endif; ?>
 
-        <a class="return-link" href="search.php">← Back to search</a>
+        <a class="return-link" href="search.php">🠔Back to search</a>
 
     </div>
 </div>

@@ -1,3 +1,4 @@
+<!--Start of index page-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -205,5 +206,6 @@
 <!-- end body -->
 </html>
 <!-- end html -->
+ <!--end of index page-->
 
 //http://localhost/studentAccomadationManager/index.php

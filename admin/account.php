@@ -1,3 +1,4 @@
+<!-- Account Page -->
 <?php
 session_start();
 //Checks if user is logged in
@@ -72,7 +73,7 @@ if ($user['role'] === 'student' && $isNew) {
     <body>
     <div class="account-page">
         <div class="account-card">
-            
+
             <h2>My Account</h2>
 
             <h3><?php echo $message; ?></h3>
@@ -96,6 +97,7 @@ if ($user['role'] === 'student' && $isNew) {
                 <!-- account actions -->
             <div class="account-actions">
                 <a class="button secondary" href="<?php echo dirname($_SERVER['PHP_SELF']); ?>/showBooking.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">Manage Bookings</a>
+                <a class="button secondary" href="<?php echo dirname($_SERVER['PHP_SELF']); ?>/updateAccount.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">Update Account Info</a>
                 
                 <!-- search fprms -->
                 <form class="search-form" action="<?php echo dirname($_SERVER['PHP_SELF']); ?>/search.php" method="GET">
@@ -112,7 +114,7 @@ if ($user['role'] === 'student' && $isNew) {
 
                 </div>
 
-                <a class="return-link" href="../index.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">←Return to home</a>
+                <a class="return-link" href="../index.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">🠔Return to home</a>
             </div>
         </div>
     </div>
