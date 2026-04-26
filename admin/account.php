@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-//require authentication to access account page
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -11,42 +10,48 @@ require __DIR__ . '/../includes/db.php';
 
 $user_id = $_SESSION['user_id'];
 $error = "";
-//handle account deletion request
 
+/* DELETE ACCOUNT */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_account'])) {
+
+    // ✅ FIXED: user_id instead of id
+    $deleteStmt = $conn->prepare("DELETE FROM users WHERE user_id = ?");
     
-    $deleteStmt = $conn->prepare("DELETE FROM users WHERE id = ?");
+    if (!$deleteStmt) {
+        die("Prepare failed: " . $conn->error);
+    }
+
     $deleteStmt->bind_param("i", $user_id);
 
-//execute deletion and log out user if successful
     if ($deleteStmt->execute()) {
-
-            session_unset();
+        session_unset();
         session_destroy();
         header("Location: ../index.php");
         exit();
-
     }
 
-    //error handling
     $error = "Unable to delete account. Please try again later.";
 }
 
-//fetch user details for account page display
-$stmt = $conn->prepare("SELECT username, role, created_at FROM users WHERE id = ?");
+/* FETCH USER */
+$stmt = $conn->prepare("SELECT username, role, created_at FROM users WHERE user_id = ?");
+
+if (!$stmt) {
+    die("Prepare failed: " . $conn->error);
+}
+
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
-//welcome logic based on account age and user role
+/* WELCOME MESSAGE */
 $created = strtotime($user['created_at']);
 $isNew = (time() - $created) < 86400;
 
 $message = "Welcome, " . htmlspecialchars($user['username']) . "!";
 
-//personalized welcome message for new student users
 if ($user['role'] === 'student' && $isNew) {
     $message = "Welcome to Student Accommodation Manager, " . htmlspecialchars($user['username']) . "!";
 } elseif ($user['role'] === 'student') {

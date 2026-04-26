@@ -120,19 +120,19 @@
     <div class="container info-container">
 
         <div class="info-item">
-            <div class="info desc1">
+            <div class="info desc4">
                 <h3>Best Prices</h3>
             </div>
         </div>
 
         <div class="info-item">
-            <div class="info desc2">
+            <div class="info desc5">
                 <h3>High Availability</h3>
             </div>
         </div>
       
         <div class="info-item">
-            <div class="info desc3">
+            <div class="info desc6">
                 <h3>Find your new home now</h3>
             </div>
             <a href="<?php echo isset($_SESSION['user_id']) ? 'admin/bookings.php' : 'admin/login.php'; ?>">

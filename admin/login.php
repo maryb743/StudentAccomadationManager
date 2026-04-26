@@ -1,17 +1,20 @@
 <?php
 session_start();
-//llow user to log in and create session data
 require __DIR__ . '/../includes/db.php';
 
 $error = "";
 
-//validate login credentials and create session if valid
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
 
-    //verify password
+    // get user by username
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+    
+    if (!$stmt) {
+        die("Prepare failed: " . $conn->error);
+    }
+
     $stmt->bind_param("s", $username);
     $stmt->execute();
 
@@ -19,12 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $result->fetch_assoc();
 
     if ($user) {
-        //verify if password is hashed or plain text
-        $passwordMatch = password_verify($password, $user['password'])
-            || $password === $user['password'];
+        // check hashed password
+        if (password_verify($password, $user['password'])) {
 
-        if ($passwordMatch) {
-            $_SESSION['user_id'] = $user['id'];
+            // ✅ FIXED: use user_id not id
+            $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
 
