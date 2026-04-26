@@ -121,21 +121,19 @@
 
         <div class="info-item">
             <div class="info desc1">
-                <h3>Our picks</h3>
+                <h3>Best Prices</h3>
             </div>
-            <p>Discover your new home with recommendations from students.</p>
         </div>
 
         <div class="info-item">
             <div class="info desc2">
-                <h3>Highest Ranking</h3>
+                <h3>High Availability</h3>
             </div>
-            <p>Discover the top-rated properties based on student reviews.</p>
         </div>
       
         <div class="info-item">
             <div class="info desc3">
-                <h3>The best deals!</h3>
+                <h3>Find your new home now</h3>
             </div>
             <a href="<?php echo isset($_SESSION['user_id']) ? 'admin/bookings.php' : 'admin/login.php'; ?>">
                 Book with us today!<i class="fa-solid fa-arrow-right"></i>
