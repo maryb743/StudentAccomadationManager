@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- css stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/header_styles.css">
     <link rel="stylesheet" href="css/grid.css">
@@ -97,17 +99,17 @@
         </div>
 
 <div class="width-12">
-<ul>
-    
-    <li><a href="https://www.tudublin.ie/">Technological University Dublin</a></li>
-    <li><a href="https://www.ucc.ie/">University College Cork</a></li>
-    <li><a href="https://www.nuigalway.ie/">University of Galway</a></li>
-    <li><a href="https://www.ul.ie/">University of Limerick</a></li>
-    <li><a href="https://www.dcu.ie/">Dublin City University</a></li>
-    <li><a href="https://www.maynoothuniversity.ie/">Maynooth University</a></li>
-    <li><a href="https://www.rcs.ie/">Royal College of Surgeons</a></li>
-    
-</ul>
+    <ul>
+        
+        <li><a href="https://www.tudublin.ie/">Technological University Dublin</a></li>
+        <li><a href="https://www.ucc.ie/">University College Cork</a></li>
+        <li><a href="https://www.nuigalway.ie/">University of Galway</a></li>
+        <li><a href="https://www.ul.ie/">University of Limerick</a></li>
+        <li><a href="https://www.dcu.ie/">Dublin City University</a></li>
+        <li><a href="https://www.maynoothuniversity.ie/">Maynooth University</a></li>
+        <li><a href="https://www.rcs.ie/">Royal College of Surgeons</a></li>
+        
+    </ul>
 </div>
 
 </div>
@@ -196,9 +198,11 @@
        <a href=""class=instagram> <i class="fab fa-instagram"></i></a>
     </div>
 </footer>
+<!-- end footer-->
     
 </body>
-
+<!-- end body -->
 </html>
+<!-- end html -->
 
 //http://localhost/studentAccomadationManager/index.php
