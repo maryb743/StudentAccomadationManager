@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+//Checks if user is logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -8,21 +8,22 @@ if (!isset($_SESSION['user_id'])) {
 
 require __DIR__ . '/../includes/db.php';
 
+//get user ID from session
 $user_id = $_SESSION['user_id'];
 $error = "";
 
-/* DELETE ACCOUNT */
+//delete account option
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_account'])) {
 
-    // ✅ FIXED: user_id instead of id
+//delete user from database
     $deleteStmt = $conn->prepare("DELETE FROM users WHERE user_id = ?");
-    
+    //error handling
     if (!$deleteStmt) {
         die("Prepare failed: " . $conn->error);
     }
 
     $deleteStmt->bind_param("i", $user_id);
-
+    //delet and log user out
     if ($deleteStmt->execute()) {
         session_unset();
         session_destroy();
@@ -33,20 +34,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_account'])) {
     $error = "Unable to delete account. Please try again later.";
 }
 
-/* FETCH USER */
+//get user info from database
 $stmt = $conn->prepare("SELECT username, role, created_at FROM users WHERE user_id = ?");
 
+//error handling
 if (!$stmt) {
     die("Prepare failed: " . $conn->error);
 }
 
+//bind user ID and execute query
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
-/* WELCOME MESSAGE */
+//welcome message to new users
 $created = strtotime($user['created_at']);
 $isNew = (time() - $created) < 86400;
 
@@ -59,6 +62,7 @@ if ($user['role'] === 'student' && $isNew) {
 }
 ?>
 
+<!-- Start HTML form for account -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,3 +102,5 @@ if ($user['role'] === 'student' && $isNew) {
     </body>
 
 </html>
+
+<!-- End HTML form for account -->

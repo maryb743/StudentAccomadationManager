@@ -4,26 +4,27 @@ require __DIR__ . '/../includes/db.php';
 
 $error = "";
 $success = "";
-
+<!-- handle form submission -->
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
-
+    <!-- validate input -->
     if ($username === '' || $password === '') {
         $error = "Please enter both username and password.";
     } else {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        // ✅ FIXED: use user_id instead of id
         $checkStmt = $conn->prepare("SELECT user_id FROM users WHERE username = ?");
         if (!$checkStmt) {
             die("Prepare failed: " . $conn->error);
         }
-
+        <!- check if username already exists -->
         $checkStmt->bind_param("s", $username);
         $checkStmt->execute();
         $checkResult = $checkStmt->get_result();
 
+
+        <!- if username exists, show error, otherwise create account -->
         if ($checkResult->num_rows > 0) {
             $error = "Username already exists";
         } else {
@@ -45,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+<!-- Start HTML form for signup -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,3 +75,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
+<!-- End HTML form for signup -->

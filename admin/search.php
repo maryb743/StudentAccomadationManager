@@ -6,6 +6,7 @@ require '../includes/db.php';   //connect to database
 $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 ?>
 
+<!-- start HTML form for search -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,13 +32,16 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
     <button type="submit">Search</button>
 </form>
 
+<!-- Show all listings button -->
 <form action="search.php" method="GET" style="margin-top:10px;">
     <button type="submit">Show All listings</button>
 </form>
 
+<!-- Back to account link -->
 <a href="account.php">← Back to Account</a>
 
 <?php
+//show all listings unless search query has been done then show results
     if ($query !== '') {
         echo '<h2>Results for "' . htmlspecialchars($query) . '"</h2>';
 
@@ -59,11 +63,10 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 ?>
 
 <?php if ($result->num_rows > 0): ?>
+   <!-- loop through results and display them -->
 
-    <!-- results section -->
     <section class="search-section">
         <div class="container search-container">
-
             <?php while ($row = $result->fetch_assoc()): ?>
                 
                 <div class="search-card">
@@ -76,6 +79,7 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
                             }
                         ?>
 
+                    <!--display image if it exists, otherwise show placeholder -->
                         <img 
                             src="<?php echo htmlspecialchars($imageSrc); ?>" 
                             alt="<?php echo htmlspecialchars($row['name']); ?>"
@@ -93,7 +97,7 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 
                     <p><strong>€<?php echo htmlspecialchars($row['price']); ?>/month</strong></p>
 
-                    <!-- future booking link -->
+                    <!-- link to booking page -->
                     <a href="booking.php?id=<?php echo $row['id']; ?>">
                         Book <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -110,3 +114,4 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 <?php endif; ?>
 </body>
 </html>
+<!-- End HTML form for signup -->
