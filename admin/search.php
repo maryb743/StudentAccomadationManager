@@ -60,7 +60,7 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 
 <?php if ($result->num_rows > 0): ?>
 
-    <!-- Styled results section -->
+    <!-- results section -->
     <section class="search-section">
         <div class="container search-container">
 

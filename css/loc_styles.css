@@ -29,12 +29,17 @@ max-height: 300px;
 
 .listOfColleges a{
     background-color:#f2f1fb; 
-    color: #4ea8de; 
+    color: #A4D1FB; 
     padding: 5px;
     font-weight: 700;
     font-size: 25px;
     display:inline-block;
     border-radius:4px;
     }
+
+.listOfColleges a:hover{
+    background-color:#f2f1fb; 
+    color: #01378F;
+}
 
 /* List of Colleges styles end */

@@ -73,9 +73,15 @@ header .searchBox form input {
     padding: 0 20px;
     display: flex;
     align-items: center;
-    background: #4ea8de;
+    background: #4DA0E2;
     color: #ffffff;
-    border-radius: 4px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.searchButton:hover {
+    background: #2A6CB8;
+    color: #ffffff;
     text-decoration: none;
 }
 

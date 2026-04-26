@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/fom_styles.css">
     <link rel="stylesheet" href="css/loc_styles.css">
+    <link rel="stylesheet" href="css/footer.css">
 
     <title>Student Accommodation Manager</title>
 
@@ -113,6 +114,90 @@
 
 </section>
 <!-- End of List of Universitys -->
+
+<!--start of fom 2-->
+<section class="findOutMore">
+    <div class="container info-container">
+
+        <div class="info-item">
+            <div class="info desc1">
+                <h3>Our picks</h3>
+            </div>
+            <p>Discover your new home with recommendations from students.</p>
+        </div>
+
+        <div class="info-item">
+            <div class="info desc2">
+                <h3>Highest Ranking</h3>
+            </div>
+            <p>Discover the top-rated properties based on student reviews.</p>
+        </div>
+      
+        <div class="info-item">
+            <div class="info desc3">
+                <h3>The best deals!</h3>
+            </div>
+            <a href="<?php echo isset($_SESSION['user_id']) ? 'admin/bookings.php' : 'admin/login.php'; ?>">
+                Book with us today!<i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+<!-- end of fom 2-->
+
+<!-- start footer -->
+<footer>
+    <div class="container">
+        <!-- Footer block -->
+        <div class="footerBlock">
+            <h3>Discover</h3>
+            <ul>
+                <li><a href="">Investors</a></li>
+                <li><a href="">About us</a></li>
+                <li><a href="">More</a></li>
+                <li><a href="">Careers</a></li>
+                <li><a href="">Become a representative</a></li>
+
+            </ul>
+        </div>
+
+         <!-- Footer block -->
+         <div class="footerBlock">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="">Terms and conditions</a></li>
+                <li><a href="">Privacy</a></li>
+                <li><a href="">Cookies</a></li>
+
+            </ul>
+        </div>
+
+         <!-- Footer block -->
+         <div class="footerBlock">
+            <h3>Help</h3>
+            <ul>
+                <li><a href="">Contact</a></li>
+                <li><a href="">FAQs</a></li>
+                <li><a href="">Campus maps</a></li>
+
+            </ul>
+        </div>
+
+         <!-- Footer block -->
+         <div class="footerBlock">
+            <h3>Download our app</h3>
+            <img src="images/app-store-badge.png" alt="App Store" class="app">
+            <img src="images/app-store-badge2.png" alt="Google Play">
+        
+        </div>
+    </div>
+    <div class="container foot2">
+       <a href=""class=facebook><i class="fa-brands fa-facebook"></i></a> 
+       <a href=""class=twitter> <i class="fa-brands fa-twitter"></i></a>
+       <a href=""class=instagram> <i class="fab fa-instagram"></i></a>
+    </div>
+</footer>
     
 </body>
 
