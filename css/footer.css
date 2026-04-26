@@ -23,6 +23,8 @@ footer h3{
     flex:1;
 }
 
+/* icon and links */
+
 .footerBlock ul li{
    margin-bottom:5px;
    list-style-type:none;

@@ -17,7 +17,7 @@ max-height: 300px;
     justify-content: center;
     align-items: center;
 }
-
+/* list styles*/
 
 .listOfColleges ul{
    display: flex;

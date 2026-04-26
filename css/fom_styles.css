@@ -1,9 +1,10 @@
-/* Styles for the housing options section */
+/* Styles for find out more section */
 
 .findOutMore{
     background-color: #ffffff;
 }
 
+/* Styles for the info container */
 .info-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -20,6 +21,28 @@
     border-radius: 15px;
 }
 
+.findOutMore .info{
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+    display: grid;
+    place-items: center;
+}
+
+.findOutMore .info h3{
+    color: white;
+}
+
+/* styles for links */
+.findOutMore a{
+    color: #000000;
+    text-decoration: none;
+}
+
+.findOutMore p{
+    margin-bottom: 10px;
+}
+
 .findOutMore p {
     color: #000000;
     font-size: 15px;
@@ -33,14 +56,7 @@
     display: inline-block;
 }
 
-.findOutMore .info{
-    background-size: cover;
-    background-position: center;
-    min-height: 250px;
-    display: grid;
-    place-items: center;
-}
-
+/* Styles for each description box in the find out more section */
 .findOutMore .desc1{
     background-image: url(../images/hoImage1.jpg);
     max-width: 450px;
@@ -93,15 +109,5 @@
     border: 2px solid #ffffff;
 }
 
-.findOutMore .info h3{
-    color: white;
-}
 
-.findOutMore a{
-    color: #000000;
-    text-decoration: none;
-}
-
-.findOutMore p{
-    margin-bottom: 10px;
-}
+/* End Styles for find out more section */
