@@ -1,45 +1,67 @@
 /* Styles for the List of Colleges section */
-.listOfColleges{
-background-color: white;
-max-height: 300px;
+.listOfColleges {
+    background-color: #ffffff;
+    padding: 40px 20px;
 }
 
-.listOfColleges h2{
-    color: #000000;
-    font-size: 30px;
-    padding: 10px;
+.listOfColleges h2 {
+    color: #163653;
+    font-size: 2rem;
+    margin: 0 0 24px;
+    text-align: center;
 }
 
-.college-container{
+.college-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
     align-items: center;
+    padding: 0 12px;
 }
-/* list styles*/
 
-.listOfColleges ul{
+/* list styles */
+.listOfColleges ul {
    display: flex;
-   gap: 10px;
+   gap: 12px;
    flex-wrap: wrap;
    justify-content: center;
    align-items: center;
+   padding: 0;
+   margin: 0;
+   list-style: none;
 }
 
-.listOfColleges a{
-    background-color:#FFFDF7; 
-    color: #4DA0E2; 
-    padding: 5px;
+.listOfColleges li {
+    margin: 0;
+}
+
+.listOfColleges a {
+    background-color: #FFFDF7;
+    color: #4DA0E2;
+    padding: 10px 16px;
     font-weight: 700;
-    font-size: 25px;
-    display:inline-block;
-    border-radius:4px;
+    font-size: 1rem;
+    display: inline-block;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.listOfColleges a:hover {
+    background-color: #eef7ff;
+    color: #2A6CB8;
+}
+
+@media (max-width: 720px) {
+    .listOfColleges {
+        padding: 32px 12px;
     }
 
-.listOfColleges a:hover{
-    background-color:#FFFDF7; 
-    color: #2A6CB8;
+    .listOfColleges a {
+        font-size: 0.95rem;
+        padding: 10px 14px;
+    }
 }
 
 /* List of Colleges styles end */

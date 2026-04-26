@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="login-box">
             <h2>Sign Up</h2>
 
+            <!-- user feedback for signup -->
             <?php if ($error): ?>
                 <p class="message error"><?php echo $error; ?></p>
             <?php endif; ?>

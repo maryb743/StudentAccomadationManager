@@ -86,13 +86,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_now']) && $listi
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Accommodation</title>
-    <link rel="stylesheet" href="../css/log_sign_styles.css">
+    <link rel="stylesheet" href="../css/form_styles.css">
 </head>
 <body>
 <div class="login-signup-container">
     <div class="login-box">
         <h2>Book Accommodation</h2>
 
+        
         <?php if ($error): ?>
             
             <p class="message error"><?php echo htmlspecialchars($error); ?></p>
@@ -107,6 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_now']) && $listi
 
         <?php if ($listing): ?>
 
+            <!-- Listing details -->
             <p><strong><?php echo htmlspecialchars($listing['name']); ?></strong></p>
 
             <p><?php echo nl2br(htmlspecialchars($listing['description'])); ?></p>
@@ -115,6 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_now']) && $listi
 
             <p><strong>Price:</strong> €<?php echo htmlspecialchars($listing['price']); ?> / month</p>
 
+            <!-- Booking form -->
             <form method="POST" action="addBooking.php?id=<?php echo $housing_id; ?>">
                 <label>
                     Start date

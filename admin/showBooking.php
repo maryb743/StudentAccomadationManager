@@ -161,6 +161,7 @@ $result = $stmt->get_result();
 </head>
 <body>
 
+<!-- My Bookings -->
 <div class="login-signup-container">
     <div class="login-box">
         <h2>My Bookings</h2>
@@ -191,6 +192,7 @@ $result = $stmt->get_result();
 
                         <h3><?php echo htmlspecialchars($booking['name']); ?></h3>
 
+                        <!-- Booking metadata -->
                         <div class="meta">
 
                             <p><strong>Location:</strong> <?php echo htmlspecialchars($booking['location']); ?></p>
@@ -200,10 +202,13 @@ $result = $stmt->get_result();
                             <p><strong>Booked on:</strong> <?php echo htmlspecialchars($booking['created_at']); ?></p>
 
                         </div>
+
+                        <!-- Booking actions -->
                         <?php if ($editBookingId === intval($booking['booking_id'])): ?>
                             <form method="POST" action="showBooking.php">
                                 <input type="hidden" name="booking_id" value="<?php echo htmlspecialchars($booking['booking_id']); ?>">
 
+                                <!-- Edit Booking Form -->
                                 <label>
                                     Start date
                                     <input type="date" name="start_date" value="<?php echo htmlspecialchars($booking['start_date']); ?>" required>
@@ -217,11 +222,15 @@ $result = $stmt->get_result();
                                 <button type="submit" name="update_booking">Save Booking</button>
                                 <a class="return-link" href="showBooking.php" style="display:inline-block; margin-top:10px; color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">Cancel</a>
                             </form>
+
                         <?php else: ?>
+
+                            <!-- Booking actions -->
                             <a class="return-link" href="showBooking.php?edit=<?php echo htmlspecialchars($booking['booking_id']); ?>" style="display:inline-block; margin-bottom:10px; color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">Update Booking</a>
                             <form method="POST" action="showBooking.php" onsubmit="return confirm('Are you sure you want to delete this booking?');">
                                 <input type="hidden" name="booking_id" value="<?php echo htmlspecialchars($booking['booking_id']); ?>">
                                 <button type="submit" name="delete_booking">Delete Booking</button>
+
                             </form>
                         <?php endif; ?>
 

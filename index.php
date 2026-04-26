@@ -13,9 +13,7 @@
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/FOM_styles.css">
     <link rel="stylesheet" href="css/loc_styles.css">
-    <link rel="stylesheet" href="../css/log_sign_styles.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="./css/search_styles.css?v=2">
 
     <title>Student Accommodation Manager</title>
 

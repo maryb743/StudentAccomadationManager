@@ -105,6 +105,7 @@ if ($user['role'] === 'student' && $isNew) {
                     <button type="submit" class="button">Search</button>
                 </form>
 
+                <!-- update database -->
                 <div class="account-row">
                     <form method="POST" onsubmit="return confirm('Are you sure you want to delete your account?');">
                         <button type="submit" name="delete_account" value="1" class="button danger">Delete Account</button>
