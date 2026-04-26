@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- css stylesheets -->
+    <!-- css & icon stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/header_styles.css">
     <link rel="stylesheet" href="css/grid.css">
@@ -193,9 +193,9 @@
         </div>
     </div>
     <div class="container foot2">
-       <a href=""class=facebook><i class="fa-brands fa-facebook"></i></a> 
-       <a href=""class=twitter> <i class="fa-brands fa-twitter"></i></a>
-       <a href=""class=instagram> <i class="fab fa-instagram"></i></a>
+       <a href="https://www.facebook.com/"class=facebook><i class="fa-brands fa-facebook"></i></a> 
+       <a href="https://x.com/?lang=en"class=twitter><i class="fa-brands fa-x-twitter"></i></a>
+       <a href="https://www.instagram.com/"class=instagram> <i class="fab fa-instagram"></i></a>
     </div>
 </footer>
 <!-- end footer-->

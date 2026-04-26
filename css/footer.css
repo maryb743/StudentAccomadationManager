@@ -5,7 +5,7 @@ footer .container{
 }
 
 footer{
-    background-color: #343535;
+    background-color: #404141;
     color: #ffff;
     font-size:14px;
     line-height:1.8;
@@ -18,7 +18,7 @@ footer h3{
 }
 
 .footerBlock{
-    background-color: #434444;
+    background-color: #4f5050;
     padding:25px;
     flex:1;
 }
@@ -31,10 +31,11 @@ footer h3{
 }
 
 footer a{
-      color: #2A6CB8;
+      color: #4DA0E2;
 }
 
 footer a:hover{
+    color: #2A6CB8;
     text-decoration:underline;
 }
 
@@ -43,15 +44,15 @@ footer a:hover{
 }
 
 a.facebook{
-  color: #2A6CB8;
+  color: #2A5097;
 }
 
 a.twitter{
-  color: #2A6CB8;
+  color: #2A5097;
   }
 
   a.instagram{
-  color: #2A6CB8;
+  color: #2A5097;
   }
 
 a.facebook:hover{
@@ -59,7 +60,7 @@ a.facebook:hover{
 }
 
 a.twitter:hover{
-    color: #1DA1F2;
+    color: #0a0b0b;
   }
 
   a.instagram:hover{

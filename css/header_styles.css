@@ -44,6 +44,13 @@ header nav ul a {
     background: #fff;
     padding: 9px 19px;
     border-radius: 4px;
+    color: #4DA0E2;
+}
+
+header nav li a:hover {
+
+    color: #2A6CB8;
+
 }
 
 /* search box styles */
@@ -73,16 +80,29 @@ header .searchBox form input {
     padding: 0 20px;
     display: flex;
     align-items: center;
-    background: #4DA0E2;
+    justify-content: center;
+    background-color: #4DA0E2 !important;
     color: #ffffff;
     border-radius: 6px;
     text-decoration: none;
+    border: none !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .searchButton:hover {
-    background: #2A6CB8;
+    background-color: #2A5097 !important;
     color: #ffffff;
     text-decoration: none;
+}
+
+.searchButton:active,
+.searchButton:focus {
+    background-color: #2A5097 !important;
+    outline: none;
 }
 
 /* image */

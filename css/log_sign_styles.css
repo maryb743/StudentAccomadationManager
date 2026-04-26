@@ -1,0 +1,10 @@
+
+/* login/signup pages style start */
+.login-signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(../images/loginbg.jpg);
+    background-size: cover;
+}
