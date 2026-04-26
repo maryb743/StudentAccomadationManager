@@ -10,11 +10,13 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
     <link rel="stylesheet" href="../css/search_styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
@@ -24,17 +26,22 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 <!-- Search bar -->
 <form action="search.php" method="GET">
     <input 
+
         type="text" 
         name="query" 
         placeholder="Search accommodation..." 
         value="<?php echo htmlspecialchars($query); ?>"
+
     >
     <button type="submit">Search</button>
+
 </form>
 
 <!-- Show all listings button -->
 <form action="search.php" method="GET" style="margin-top:10px;">
+
     <button type="submit">Show All listings</button>
+
 </form>
 
 <!-- Back to account link -->
@@ -43,6 +50,7 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 <?php
 //show all listings unless search query has been done then show results
     if ($query !== '') {
+
         echo '<h2>Results for "' . htmlspecialchars($query) . '"</h2>';
 
         $stmt = $conn->prepare(
@@ -52,6 +60,7 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 
         $searchTerm = "%$query%";
         $stmt->bind_param("sss", $searchTerm, $searchTerm, $searchTerm);
+
     } else {
         echo '<h2>All Properties</h2>';
 
@@ -66,11 +75,14 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
    <!-- loop through results and display them -->
 
     <section class="search-section">
+
         <div class="container search-container">
+
             <?php while ($row = $result->fetch_assoc()): ?>
                 
+                <!-- -->
                 <div class="search-card">
-
+                    <!-- handle image paths that are stored as relative paths in the database -->
                     <div class="info desc<?php echo ($row['housing_id'] % 3) + 1; ?>">
                         <?php
                             $imageSrc = trim($row['image']);
@@ -87,31 +99,40 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
                         >
 
                         <h3><?php echo htmlspecialchars($row['name']); ?></h3>
+
                     </div>
 
-                    <p><?php echo htmlspecialchars($row['description']); ?></p>
+                <p><?php echo htmlspecialchars($row['description']); ?></p>
 
-                    <p><strong>Location:</strong> 
-                        <?php echo htmlspecialchars($row['location']); ?>
-                    </p>
+                <p><strong>Location:</strong> 
 
-                    <p><strong>€<?php echo htmlspecialchars($row['price']); ?>/month</strong></p>
+                    <?php echo htmlspecialchars($row['location']); ?>
 
-                    <!-- link to booking page -->
-                    <a href="addBooking.php?id=<?php echo $row['housing_id']; ?>">
-                        Book <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                </p>
 
-                </div>
+                <p><strong>€<?php echo htmlspecialchars($row['price']); ?>/month</strong></p>
+
+                <!-- link to booking page -->
+                <a href="addBooking.php?id=<?php echo $row['housing_id']; ?>">
+
+                    Book <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
 
             <?php endwhile; ?>
 
         </div>
     </section>
 
-<?php else: ?>
-    <p>No results found.</p>
-<?php endif; ?>
-</body>
+    <?php else: ?>
+
+        <p>No results found.</p>
+        
+    <?php endif; ?>
+
+    </body>
+    
 </html>
 <!-- End HTML form for signup -->

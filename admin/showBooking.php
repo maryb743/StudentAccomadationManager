@@ -56,6 +56,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
+<!--end showBookings html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,37 +71,61 @@ $result = $stmt->get_result();
         <h2>My Bookings</h2>
 
         <?php if ($message): ?>
+
             <p class="message success"><?php echo htmlspecialchars($message); ?></p>
+
         <?php endif; ?>
         <?php if ($error): ?>
+
             <p class="message error"><?php echo htmlspecialchars($error); ?></p>
+
         <?php endif; ?>
 
         <?php if ($result->num_rows === 0): ?>
+
             <p>You have no bookings yet. Search for accommodation to make a booking.</p>
+
         <?php else: ?>
+
             <div class="booking-list">
+
                 <?php while ($booking = $result->fetch_assoc()): ?>
+
                     <div class="booking-card">
+
                         <h3><?php echo htmlspecialchars($booking['name']); ?></h3>
+
                         <div class="meta">
+
                             <p><strong>Location:</strong> <?php echo htmlspecialchars($booking['location']); ?></p>
                             <p><strong>Stay:</strong> <?php echo htmlspecialchars($booking['start_date']); ?> to <?php echo htmlspecialchars($booking['end_date']); ?></p>
                             <p><strong>Total price:</strong> €<?php echo htmlspecialchars($booking['total_price']); ?></p>
                             <p><strong>Status:</strong> <?php echo htmlspecialchars($booking['status']); ?></p>
                             <p><strong>Booked on:</strong> <?php echo htmlspecialchars($booking['created_at']); ?></p>
+
                         </div>
                         <form method="POST" action="showBooking.php" onsubmit="return confirm('Are you sure you want to delete this booking?');">
+
                             <input type="hidden" name="booking_id" value="<?php echo htmlspecialchars($booking['booking_id']); ?>">
+
                             <button type="submit" name="delete_booking">Delete Booking</button>
+
                         </form>
+
                     </div>
+
                 <?php endwhile; ?>
+
             </div>
+
         <?php endif; ?>
 
         <a class="return-link" href="account.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">← Back to Account</a>
     </div>
-</div>
-</body>
+
+    </div>
+
+    </body>
+
 </html>
+<!--end showBookings -->

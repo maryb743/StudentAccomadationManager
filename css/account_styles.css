@@ -1,0 +1,152 @@
+/* start of account styles */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #C7E5FF;
+    color: #1E3A5F;
+}
+
+/* account page styles */
+.account-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #C7E5FF;
+}
+
+/* account card styles */
+.account-card {
+    width: min(100%, 460px);
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+.account-card h2, .account-card h3 {
+    margin: 0 0 18px;
+    color: #1E3A5F;
+}
+
+.account-card h3 {
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+/* account details */
+.account-details {
+    background: #f3faff;
+    border: 1px solid #d7e8fb;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 22px;
+}
+
+.account-details p {
+    margin: 10px 0;
+    font-size: 0.97rem;
+}
+
+.account-details span {
+    font-weight: 700;
+}
+
+/* account actions */
+
+.account-actions {
+    display: grid;
+    gap: 16px;
+}
+
+.account-actions .search-form {
+    display: grid;
+    gap: 10px;
+}
+
+.account-actions input[type="text"] {
+    border: 1px solid #d7e8fb;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* buttons */
+
+.account-actions button {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    background: #4DA0E2;
+    color: #ffffff;
+    padding: 14px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.account-actions button:hover {
+    background: #2A6CB8;
+}
+
+/* form button styles */
+
+.account-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.account-row form,
+.account-row .button.logout {
+    flex: 1;
+}
+
+.account-row form button {
+    width: 100%;
+}
+
+.account-row .button.logout {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #4DA0E2;
+    background: transparent;
+    color: #4DA0E2;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.account-row .button.logout:hover {
+    color: #2A6CB8;
+    border-color: #2A6CB8;
+}
+
+.return-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: #4DA0E2;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.return-link:hover {
+    color: #2A6CB8;
+}
+
+.message.error {
+    background: #ffe7ea;
+    color: #a2313e;
+    border: 1px solid #f5c2c7;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 0 0 18px;
+}

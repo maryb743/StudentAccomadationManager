@@ -72,35 +72,46 @@ if ($user['role'] === 'student' && $isNew) {
     <body>
     <div class="account-page">
         <div class="account-card">
+            
             <h2>My Account</h2>
+
             <h3><?php echo $message; ?></h3>
 
+           <!-- error handling -->
             <?php if ($error): ?>
+
                 <p class="message error"><?php echo htmlspecialchars($error); ?></p>
+
             <?php endif; ?>
 
+            <!-- account details section -->
             <div class="account-details">
+
                 <p><span>Username:</span> <?php echo htmlspecialchars($user['username']); ?></p>
                 <p><span>Role:</span> <?php echo htmlspecialchars($user['role']); ?></p>
                 <p><span>Member Since:</span> <?php echo $user['created_at']; ?></p>
+
             </div>
 
-
+                <!-- account actions -->
             <div class="account-actions">
                 <a class="button secondary" href="<?php echo dirname($_SERVER['PHP_SELF']); ?>/showBooking.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">Manage Bookings</a>
                 
-                <!-- search fprm -->
+                <!-- search fprms -->
                 <form class="search-form" action="<?php echo dirname($_SERVER['PHP_SELF']); ?>/search.php" method="GET">
                     <input type="text" name="query" placeholder="Search accommodation...">
                     <button type="submit" class="button">Search</button>
                 </form>
-                <!-- search form -->
+
                 <div class="account-row">
                     <form method="POST" onsubmit="return confirm('Are you sure you want to delete your account?');">
                         <button type="submit" name="delete_account" value="1" class="button danger">Delete Account</button>
                     </form>
+
                     <a class="button logout" href="logout.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">Logout</a>
+
                 </div>
+
                 <a class="return-link" href="../index.php" style="color:#4DA0E2; text-decoration:none;" onmouseover="this.style.color='#2A6CB8';" onmouseout="this.style.color='#4DA0E2';">←Return to home</a>
             </div>
         </div>

@@ -78,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_now']) && $listi
 }
 ?>
 
+<!--start addBookings html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,17 +93,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_now']) && $listi
         <h2>Book Accommodation</h2>
 
         <?php if ($error): ?>
+            
             <p class="message error"><?php echo htmlspecialchars($error); ?></p>
+
         <?php endif; ?>
 
         <?php if ($message): ?>
+
             <p class="message success"><?php echo htmlspecialchars($message); ?></p>
+
         <?php endif; ?>
 
         <?php if ($listing): ?>
+
             <p><strong><?php echo htmlspecialchars($listing['name']); ?></strong></p>
+
             <p><?php echo nl2br(htmlspecialchars($listing['description'])); ?></p>
+
             <p><strong>Location:</strong> <?php echo htmlspecialchars($listing['location']); ?></p>
+
             <p><strong>Price:</strong> €<?php echo htmlspecialchars($listing['price']); ?> / month</p>
 
             <form method="POST" action="addBooking.php?id=<?php echo $housing_id; ?>">
@@ -123,7 +132,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_now']) && $listi
         <?php endif; ?>
 
         <a class="return-link" href="search.php">← Back to search</a>
+
     </div>
 </div>
+
 </body>
 </html>
+<!--end showBookings -->
