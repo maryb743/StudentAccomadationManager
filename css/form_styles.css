@@ -1,0 +1,151 @@
+/* signup,login and booking styles start */
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #C7E5FF;
+    color: #1E3A5F;
+}
+
+/* container styles */
+
+.login-signup-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #C7E5FF;
+}
+
+.login-box {
+    width: min(100%, 420px);
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+    padding: 34px 32px;
+    box-sizing: border-box;
+}
+
+/* text styles */
+
+.login-box h2 {
+    margin: 0 0 22px;
+    font-size: 1.75rem;
+    color: #1E3A5F;
+}
+
+/* form elements */
+
+.login-box input,
+.login-box button,
+.login-box select,
+.login-box textarea {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #d7e8fb;
+    padding: 14px 16px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    margin-top: 14px;
+}
+
+.login-box input:focus,
+.login-box select:focus,
+.login-box textarea:focus {
+    outline: none;
+    border-color: #4DA0E2;
+}
+
+/* button */
+
+.login-box button {
+    background: #4DA0E2;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: background 0.2s ease;
+}
+
+.login-box button:hover {
+    background: #2A6CB8;
+}
+
+/* link styles */
+.login-box .form-link,
+.login-box .return-link,
+.login-box .button.logout,
+.login-box a {
+    transition: color 0.2s ease;
+}
+
+.login-box .form-link a,
+.login-box .return-link,
+.login-box .button.logout,
+.login-box a {
+    color: #4DA0E2;
+    text-decoration: none;
+}
+
+.login-box .form-link a:hover,
+.login-box .return-link:hover,
+.login-box .button.logout:hover,
+.login-box a:hover {
+    color: #2A6CB8;
+}
+
+/* message styles */
+.message {
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 0 0 18px;
+    font-size: 0.97rem;
+}
+
+.message.error {
+    background: #ffe7ea;
+    color: #a2313e;
+    border: 1px solid #f5c2c7;
+}
+
+.message.success {
+    background: #e6f2ff;
+    color: #1e4e82;
+    border: 1px solid #9fc8ee;
+}
+
+/* booking lists styles */
+
+.booking-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.booking-card {
+    background: #f8fbff;
+    border: 1px solid #d8eaf8;
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.booking-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #163653;
+}
+
+.booking-card .meta p {
+    margin: 8px 0;
+}
+
+.booking-card form button {
+    width: auto;
+    display: inline-block;
+    padding: 10px 18px;
+    margin-top: 16px;
+}
+
+/* signup,login and booking styles start */
