@@ -16,7 +16,7 @@ if ($housing_id > 0) {
     $stmt->execute();
     $result = $stmt->get_result();
     $listing = $result->fetch_assoc();
-}
+}   
 
 //error handling
 if (!$listing) {
@@ -36,7 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_now']) && $listi
 
         //error handling
         if (!$start_ts || !$end_ts || $end_ts <= $start_ts) {
+
             $error = 'Please choose a valid date range with end date after start date.';
+            
         } else {
             //calculate total price based on duration and listing price
             $days = ceil(($end_ts - $start_ts) / 86400);

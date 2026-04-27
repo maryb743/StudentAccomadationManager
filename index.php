@@ -26,7 +26,6 @@
 
      <div class="container">
         <!-- logo & nav bar -->
-        <div class="width-4"><i class="fa-sharp-duotone fa-light fa-people-roof"></i></div>
         <div class="width-8">
             <nav>
         <?php session_start(); ?>
