@@ -96,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['book_now']) && $listi
         
         <?php if ($error): ?>
             
+            
             <p class="message error"><?php echo htmlspecialchars($error); ?></p>
 
         <?php endif; ?>
